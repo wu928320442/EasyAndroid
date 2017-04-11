@@ -17,6 +17,7 @@ import com.wjj.easy.easyandroid.mvp.domain.executor.MainThread;
 import com.wjj.easy.easyandroid.mvp.domain.executor.impl.MainThreadImpl;
 import com.wjj.easy.easyandroid.mvp.domain.executor.impl.ThreadExecutor;
 import com.wjj.easy.easyandroidHelper.common.net.ApiService;
+import com.wjj.easy.easyandroidHelper.common.net.CookieInterceptor;
 
 import dagger.Module;
 import dagger.Provides;
@@ -44,6 +45,7 @@ public class AModule extends AppModule {
                 .setBaseUrl(ApiService.HOST)
                 .setCookieJar(cookieJar)
                 .setTimeout(15)
+                .addInterceptor(new CookieInterceptor())
                 .build();
     }
 

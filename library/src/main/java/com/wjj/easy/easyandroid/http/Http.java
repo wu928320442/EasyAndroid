@@ -3,8 +3,10 @@ package com.wjj.easy.easyandroid.http;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.wjj.easy.easyandroid.BuildConfig;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -42,6 +44,9 @@ public class Http {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (DEBUG) {
             builder.addInterceptor(loggingInterceptor);
+        }
+        for (Interceptor interceptor : mBuilder.interceptors) {
+            builder.addInterceptor(interceptor);
         }
         mClient = builder.retryOnConnectionFailure(true)
                 .connectTimeout(mBuilder.timeout, TimeUnit.SECONDS)
@@ -109,6 +114,7 @@ public class Http {
         private String baseUrl;
         private ClearableCookieJar cookieJar;
         private long timeout;
+        private ArrayList<Interceptor> interceptors = new ArrayList<Interceptor>();
 
         public HttpBuilder setBaseUrl(String baseUrl) {
             this.baseUrl = baseUrl;
@@ -122,6 +128,11 @@ public class Http {
 
         public HttpBuilder setTimeout(long timeout) {
             this.timeout = timeout;
+            return this;
+        }
+
+        public HttpBuilder addInterceptor(Interceptor interceptor) {
+            interceptors.add(interceptor);
             return this;
         }
 
