@@ -1,6 +1,7 @@
 package com.wjj.easy.easyandroidHelper.module.login;
 
 import android.content.Intent;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,11 +15,14 @@ import com.wjj.easy.easyandroidHelper.module.login.di.LoginModule;
 import com.wjj.easy.easyandroidHelper.module.main.MainActivity;
 
 import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by wujiajun on 17/4/7.
+ * 登录Activity
+ *
+ * @author wujiajun
  */
 
 public class LoginActivity extends BaseActivity implements LoginContract.View {
@@ -36,11 +40,24 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     TextView getVerifyCode;
     @BindView(R.id.tv_login)
     TextView tvLogin;
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
 
     @Override
     protected void init() {
         //设置presenter
         DaggerLoginComponent.builder().aComponent(((AppApplication) getApplication()).getAppComponent()).loginModule(new LoginModule(this)).build().inject(this);
+
+        // App Logo
+        toolbar.setLogo(R.mipmap.ic_launcher);
+        // Title
+        toolbar.setTitle("App Title");
+        // Sub Title
+        toolbar.setSubtitle("Sub title");
+
+        setSupportActionBar(toolbar);
+        //Navigation Icon
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
     }
 
     @Override

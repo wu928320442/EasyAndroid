@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EasyAndroid</string>
+    <string name="home_tab">首页</string>
+    <string name="my_tab">我的</string>
 </resources>

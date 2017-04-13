@@ -7,6 +7,7 @@ import com.wjj.easy.easyandroidHelper.module.login.LoginActivity;
 import dagger.Component;
 
 /**
+ * Login注入器
  * Created by wujiajun on 17/4/7.
  */
 @ActivityScope

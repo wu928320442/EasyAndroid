@@ -7,7 +7,10 @@ import com.wjj.easy.easyandroid.mvp.domain.executor.MainThread;
 
 
 /**
- * This class makes sure that the runnable we provide will be run on the main UI thread.
+ * MainThread具体实现类
+ * 确保Runnable中的内容在主线程中执行
+ *
+ * @author wujiajun
  */
 public class MainThreadImpl implements MainThread {
 

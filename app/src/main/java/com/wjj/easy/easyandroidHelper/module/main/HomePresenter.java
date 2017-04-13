@@ -6,13 +6,13 @@ import javax.inject.Inject;
  * Created by wujiajun on 17/4/6.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class HomePresenter implements HomeContract.Presenter {
 
     @Inject
-    MainContract.View view;
+    HomeContract.View view;
 
     @Inject
-    public MainPresenter() {
+    public HomePresenter() {
     }
 
     @Override
@@ -20,15 +20,9 @@ public class MainPresenter implements MainContract.Presenter {
 
     }
 
+    @Inject
     @Override
-    public void add(int a, int b) {
-
+    public void setupListeners() {
+        view.setPresenter(this);
     }
-
-    @Override
-    public void minus(int a, int b) {
-
-    }
-
-
 }

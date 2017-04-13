@@ -5,6 +5,13 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
+
     <EditText
         android:id="@+id/set_user_name"
         android:layout_width="match_parent"
@@ -38,8 +45,8 @@
         <TextView
             android:id="@+id/get_verify_code"
             android:layout_width="50dp"
-            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="获取验证码" />
     </LinearLayout>
 

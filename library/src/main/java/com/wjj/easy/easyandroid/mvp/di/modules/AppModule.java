@@ -10,20 +10,22 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by niuxiaowei on 16/3/19.
+ * Application注入提供者Module
+ *
+ * @author wujiajun
  */
 @Module
 public class AppModule {
 
     Context context;
 
-    public AppModule(Context context){
+    public AppModule(Context context) {
         this.context = context;
     }
 
     @ApplicationScope
     @Provides
-    public Context provideContext(){
+    public Context provideContext() {
         return context;
     }
 

@@ -10,7 +10,9 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by niuxiaowei on 16/3/19.
+ * Application注射组件
+ *
+ * @author wujiajun
  */
 @ApplicationScope
 @Component(modules = {AppModule.class})

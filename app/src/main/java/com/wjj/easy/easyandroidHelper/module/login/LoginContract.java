@@ -5,9 +5,9 @@ import com.wjj.easy.easyandroid.mvp.BaseView;
 
 
 /**
+ * LoginContract
  * Created by wujiajun on 17/4/7.
  */
-
 public interface LoginContract {
 
     interface View extends BaseView<Presenter> {

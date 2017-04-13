@@ -2,7 +2,7 @@ package com.wjj.easy.easyandroid.mvp.domain.executor.impl;
 
 
 import com.wjj.easy.easyandroid.mvp.domain.executor.Executor;
-import com.wjj.easy.easyandroid.mvp.domain.interactors.impl.AbstractInteractor;
+import com.wjj.easy.easyandroid.mvp.domain.usecases.AbstractUseCase;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -10,8 +10,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This singleton class will make sure that each interactor operation gets a background thread.
- * <p/>
+ * Executor具体实现类
+ * 实现用例的执行，用例生命周期的更新
+ * 注意它是个单例模式
+ *
+ * @author wujiajun
  */
 public class ThreadExecutor implements Executor {
 
@@ -37,22 +40,22 @@ public class ThreadExecutor implements Executor {
     }
 
     @Override
-    public void execute(final AbstractInteractor interactor) {
+    public void execute(final AbstractUseCase interactor) {
         mThreadPoolExecutor.submit(new Runnable() {
             @Override
             public void run() {
-                // run the main logic
+                //执行用例逻辑
                 interactor.run();
-
-                // mark it as finished
+                //更新用例状态
                 interactor.onFinished();
             }
         });
     }
 
     /**
-     * Returns a singleton instance of this executor. If the executor is not initialized then it initializes it and returns
-     * the instance.
+     * Executor实例
+     *
+     * @return
      */
     public static Executor getInstance() {
         if (sThreadExecutor == null) {

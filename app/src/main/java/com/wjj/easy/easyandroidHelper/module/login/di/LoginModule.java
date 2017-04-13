@@ -6,6 +6,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Login 注入提供者
  * Created by wujiajun on 17/4/7.
  */
 @Module
@@ -18,7 +19,7 @@ public class LoginModule {
     }
 
     @Provides
-    LoginContract.View provideView(){
+    LoginContract.View provideView() {
         return view;
     }
 

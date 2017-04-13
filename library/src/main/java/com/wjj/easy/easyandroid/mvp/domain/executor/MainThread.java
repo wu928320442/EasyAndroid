@@ -1,17 +1,17 @@
 package com.wjj.easy.easyandroid.mvp.domain.executor;
 
 /**
- * This interface will define a class that will enable interactors to run certain operations on the main (UI) thread. For example,
- * if an interactor needs to show an object to the UI this can be used to make sure the show method is called on the UI
- * thread.
- * <p/>
+ * MainThread定义了一个能够在主线程使用用例执行的接口
+ * 举个例子：如果一个用例需要显示一个对象到UI上，能够使用这个确保run执行的内容是在主线程中
+ * @author wujiajun
  */
 public interface MainThread {
 
     /**
-     * Make runnable operation run in the main thread.
+     * 执行一个Runnable
+     * 确保Runnable中的内容在主线程中运行
      *
-     * @param runnable The runnable to run.
+     * @param runnable
      */
     void post(final Runnable runnable);
 }

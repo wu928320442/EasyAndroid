@@ -8,12 +8,18 @@ import com.wjj.easy.easyandroid.mvp.di.scopes.ActivityScope;
 import dagger.Component;
 
 /**
+ * Activity注射组件
  *
- * Created by niuxiaowei on 16/3/20.
+ * @author wujiajun
  */
 @ActivityScope
 @Component(modules = {ActivityModule.class})
 public interface ActivityComponent {
 
+    /**
+     * 获取注入的Activity
+     *
+     * @return Activity
+     */
     Activity getActivity();
 }

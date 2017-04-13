@@ -8,9 +8,9 @@ import com.wjj.easy.easyandroidHelper.module.login.domain.LoginTask;
 import javax.inject.Inject;
 
 /**
+ * Login Presenter
  * Created by wujiajun on 17/4/7.
  */
-
 public class LoginPresenter implements LoginContract.Presenter {
 
     @Inject
