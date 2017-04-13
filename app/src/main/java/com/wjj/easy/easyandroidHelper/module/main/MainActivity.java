@@ -4,11 +4,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
 import com.wjj.easy.easyandroidHelper.AppApplication;
 import com.wjj.easy.easyandroidHelper.R;
 import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
@@ -75,6 +77,7 @@ public class MainActivity extends BaseActivity {
 
         DaggerMainComponent.builder()
                 .aComponent(((AppApplication) getApplication()).getAppComponent())
+                .activityModule(new ActivityModule(this))
                 .homeModule(new HomeModule((HomeFragment) fragments[0]))
                 .myModule(new MyModule((MyFragment) fragments[1]))
                 .build()
@@ -91,7 +94,7 @@ public class MainActivity extends BaseActivity {
             icon.setImageResource(R.mipmap.tab_user_selected);
             title.setText(R.string.my_tab);
         }
-        title.setTextColor(getResources().getColor(R.color.black));
+        title.setTextColor(ContextCompat.getColor(this, R.color.black));
     }
 
     private void unSelectTab(TabLayout.Tab tab) {
@@ -104,7 +107,7 @@ public class MainActivity extends BaseActivity {
             icon.setImageResource(R.mipmap.tab_user_unselected);
             title.setText(R.string.my_tab);
         }
-        title.setTextColor(getResources().getColor(R.color.grey));
+        title.setTextColor(ContextCompat.getColor(this, R.color.grey));
     }
 
     @Override

@@ -9,5 +9,4 @@ public interface BaseView<T extends BasePresenter> {
 
     void toast(String msg);
 
-    boolean isFinished();
 }

@@ -37,12 +37,8 @@ public class MyFragment extends BaseFragment implements MyContract.View {
     }
 
     @Override
-    public void toast(String msg) {
-
-    }
-
-    @Override
-    public boolean isFinished() {
-        return false;
+    public void onStart() {
+        super.onStart();
+        presenter.start();
     }
 }

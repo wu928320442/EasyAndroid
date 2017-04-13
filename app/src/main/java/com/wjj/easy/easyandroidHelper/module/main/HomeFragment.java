@@ -29,12 +29,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    public void toast(String msg) {
-
+    public void onStart() {
+        super.onStart();
+        presenter.start();
     }
 
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
 }

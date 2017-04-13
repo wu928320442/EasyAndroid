@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
 import com.wjj.easy.easyandroidHelper.AppApplication;
 import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.R;
@@ -46,7 +47,12 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     protected void init() {
         //设置presenter
-        DaggerLoginComponent.builder().aComponent(((AppApplication) getApplication()).getAppComponent()).loginModule(new LoginModule(this)).build().inject(this);
+        DaggerLoginComponent.builder()
+                .aComponent(((AppApplication) getApplication()).getAppComponent())
+                .loginModule(new LoginModule(this))
+                .activityModule(new ActivityModule(this))
+                .build()
+                .inject(this);
 
         // App Logo
         toolbar.setLogo(R.mipmap.ic_launcher);

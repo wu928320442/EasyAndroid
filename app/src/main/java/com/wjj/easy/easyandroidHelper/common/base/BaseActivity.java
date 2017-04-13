@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.wjj.easy.easyandroidHelper.BuildConfig;
 
@@ -66,6 +67,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (DEBUG) {
             Logger.t(TAG).d("onDestroy");
         }
+    }
+
+    public void toast(String msg) {
+        ToastUtils.showShortToast(msg);
     }
 
     protected abstract void init();

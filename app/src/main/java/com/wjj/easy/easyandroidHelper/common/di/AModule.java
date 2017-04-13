@@ -37,6 +37,9 @@ public class AModule extends AppModule {
         initUtils();
     }
 
+    /**
+     * Http初始化
+     */
     private void initHttp() {
         //cookie cache & persistor
         ClearableCookieJar cookieJar =
@@ -49,6 +52,9 @@ public class AModule extends AppModule {
                 .build();
     }
 
+    /**
+     * Fresco初始化
+     */
     private void initImage() {
         ImagePipelineConfig config = OkHttpImagePipelineConfigFactory
                 .newBuilder(provideContext(), mHttp.getClient())
@@ -56,6 +62,9 @@ public class AModule extends AppModule {
         Fresco.initialize(provideContext(), config);
     }
 
+    /**
+     * Utils库初始化
+     */
     private void initUtils() {
         Utils.init(provideContext());
     }
@@ -71,7 +80,7 @@ public class AModule extends AppModule {
     }
 
     @Provides
-    MainThread provideMainThread(){
+    MainThread provideMainThread() {
         return MainThreadImpl.getInstance();
     }
 

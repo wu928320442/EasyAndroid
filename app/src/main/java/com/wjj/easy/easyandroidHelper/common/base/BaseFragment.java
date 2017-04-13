@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.wjj.easy.easyandroidHelper.BuildConfig;
 
@@ -33,7 +34,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if(DEBUG){
+        if (DEBUG) {
             Logger.t(TAG).d("onStart");
         }
     }
@@ -41,7 +42,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if(DEBUG){
+        if (DEBUG) {
             Logger.t(TAG).d("onResume");
         }
     }
@@ -49,7 +50,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        if(DEBUG){
+        if (DEBUG) {
             Logger.t(TAG).d("onPause");
         }
     }
@@ -57,7 +58,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        if(DEBUG){
+        if (DEBUG) {
             Logger.t(TAG).d("onStop");
         }
     }
@@ -65,9 +66,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(DEBUG){
+        if (DEBUG) {
             Logger.t(TAG).d("onDestroy");
         }
+    }
+
+    public void toast(String msg) {
+        ToastUtils.showShortToast(msg);
     }
 
     protected abstract void init();
