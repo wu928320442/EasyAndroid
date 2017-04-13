@@ -15,7 +15,4 @@ public interface MainComponent {
 
     void inject(MainActivity mainActivity);
 
-//    HomeComponent homeFragmentComponent();
-//
-//    MyComponent myFragmentComponent();
 }
