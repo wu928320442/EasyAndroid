@@ -23,6 +23,8 @@ public abstract class AbstractUseCase implements UseCase {
     protected volatile boolean mIsCanceled;
     protected volatile boolean mIsRunning;
 
+    protected Callback mCallback;
+
     /**
      * 业务逻辑实现方法
      * 别主动调用他，Executor中自动执行调用
@@ -65,9 +67,22 @@ public abstract class AbstractUseCase implements UseCase {
     }
 
     /**
-     * 任务回调通用接口
+     * 设置任务回调接口
+     *
+     * @param callback
      */
-    public interface Callback {
+    public void setCallback(Callback callback) {
+        this.mCallback = callback;
     }
+
+    /**
+     * 获取任务回调接口
+     *
+     * @return
+     */
+    public Callback getCallback() {
+        return mCallback;
+    }
+
 
 }

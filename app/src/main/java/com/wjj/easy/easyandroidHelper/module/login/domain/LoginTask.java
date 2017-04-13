@@ -21,7 +21,6 @@ public class LoginTask extends AbstractUseCase {
     String userName;
     String pwd;
     String verifyCode;
-    Callback callback;
 
     @Inject
     AppHttp appHttp;
@@ -35,20 +34,14 @@ public class LoginTask extends AbstractUseCase {
         appHttp.login(userName, SecretUtils.encryptByPublicKey(pwd, publicKey), verifyCode, new Http.HttpCallback<LoginResponse>() {
             @Override
             public void onResponse(LoginResponse baseStatus) {
-                callback.loginSuccess();
+                getCallback().success();
             }
 
             @Override
             public void onFailure(Throwable t) {
-                callback.loginFail();
+                getCallback().fail();
             }
         });
-    }
-
-    public interface Callback extends AbstractUseCase.Callback {
-        void loginSuccess();
-
-        void loginFail();
     }
 
     public void setUserName(String userName) {
@@ -63,7 +56,4 @@ public class LoginTask extends AbstractUseCase {
         this.verifyCode = verifyCode;
     }
 
-    public void setCallback(Callback callback) {
-        this.callback = callback;
-    }
 }

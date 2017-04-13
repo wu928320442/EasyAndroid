@@ -13,4 +13,13 @@ public interface UseCase {
      * 可在任何线程执行
      */
     void execute();
+
+    /**
+     * 任务回调通用接口
+     */
+    interface Callback {
+        void success();
+
+        void fail();
+    }
 }

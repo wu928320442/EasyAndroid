@@ -21,8 +21,6 @@ public class GetVerifyCodeTask extends AbstractUseCase {
     String userName;
     String pwd;
 
-    Callback callback;
-
     @Inject
     AppHttp appHttp;
 
@@ -35,20 +33,14 @@ public class GetVerifyCodeTask extends AbstractUseCase {
         appHttp.getVerifyCode(userName, SecretUtils.encryptByPublicKey(pwd, publicKey), new Http.HttpCallback<BaseStatus>() {
             @Override
             public void onResponse(BaseStatus baseStatus) {
-                callback.success();
+                getCallback().success();
             }
 
             @Override
             public void onFailure(Throwable t) {
-                callback.fail();
+                getCallback().fail();
             }
         });
-    }
-
-    public interface Callback extends AbstractUseCase.Callback {
-        void success();
-
-        void fail();
     }
 
     public void setUserName(String userName) {
@@ -59,7 +51,4 @@ public class GetVerifyCodeTask extends AbstractUseCase {
         this.pwd = pwd;
     }
 
-    public void setCallback(Callback callback) {
-        this.callback = callback;
-    }
 }
