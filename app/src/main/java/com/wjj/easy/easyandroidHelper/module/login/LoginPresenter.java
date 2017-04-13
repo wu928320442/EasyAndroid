@@ -3,6 +3,8 @@ package com.wjj.easy.easyandroidHelper.module.login;
 import com.wjj.easy.easyandroid.mvp.domain.executor.Executor;
 import com.wjj.easy.easyandroid.mvp.domain.executor.MainThread;
 import com.wjj.easy.easyandroid.mvp.domain.usecases.UseCase;
+import com.wjj.easy.easyandroidHelper.model.LoginResponse;
+import com.wjj.easy.easyandroidHelper.model.base.BaseStatus;
 import com.wjj.easy.easyandroidHelper.module.login.domain.GetVerifyCodeTask;
 import com.wjj.easy.easyandroidHelper.module.login.domain.LoginTask;
 
@@ -33,9 +35,9 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void getVerifyCode(String userName, String pwd) {
         mGetVerifyCodeTask.setUserName(userName);
         mGetVerifyCodeTask.setPwd(pwd);
-        mGetVerifyCodeTask.setCallback(new UseCase.Callback() {
+        mGetVerifyCodeTask.setCallback(new UseCase.Callback<BaseStatus>() {
             @Override
-            public void success() {
+            public void success(BaseStatus baseStatus) {
                 getView().showToast("getVerifyCode success!");
             }
 
@@ -53,9 +55,9 @@ public class LoginPresenter implements LoginContract.Presenter {
         mLoginTask.setUserName(userName);
         mLoginTask.setPwd(pwd);
         mLoginTask.setVerifyCode(verifyCode);
-        mLoginTask.setCallback(new UseCase.Callback() {
+        mLoginTask.setCallback(new UseCase.Callback<LoginResponse>() {
             @Override
-            public void success() {
+            public void success(LoginResponse loginResponse) {
                 getView().showToast("login success!");
             }
 

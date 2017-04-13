@@ -17,8 +17,8 @@ public interface UseCase {
     /**
      * 任务回调通用接口
      */
-    interface Callback {
-        void success();
+    interface Callback<T> {
+        void success(T t);
 
         void fail();
     }

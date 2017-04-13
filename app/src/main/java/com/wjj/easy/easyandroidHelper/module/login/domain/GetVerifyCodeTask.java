@@ -33,7 +33,7 @@ public class GetVerifyCodeTask extends AbstractUseCase {
         appHttp.getVerifyCode(userName, SecretUtils.encryptByPublicKey(pwd, publicKey), new Http.HttpCallback<BaseStatus>() {
             @Override
             public void onResponse(BaseStatus baseStatus) {
-                getCallback().success();
+                getCallback().success(baseStatus);
             }
 
             @Override

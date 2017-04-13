@@ -34,7 +34,7 @@ public class LoginTask extends AbstractUseCase {
         appHttp.login(userName, SecretUtils.encryptByPublicKey(pwd, publicKey), verifyCode, new Http.HttpCallback<LoginResponse>() {
             @Override
             public void onResponse(LoginResponse baseStatus) {
-                getCallback().success();
+                getCallback().success(baseStatus);
             }
 
             @Override
