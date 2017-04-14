@@ -16,6 +16,7 @@ import com.wjj.easy.easyandroidHelper.R;
 import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.module.main.di.DaggerMainComponent;
 import com.wjj.easy.easyandroidHelper.module.main.di.HomeModule;
+import com.wjj.easy.easyandroidHelper.module.main.di.MainComponent;
 import com.wjj.easy.easyandroidHelper.module.main.di.MyModule;
 
 import javax.inject.Inject;
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity {
 
 
-    private Fragment[] fragments = new Fragment[]{new HomeFragment(), new MyFragment()};
+    private Fragment[] fragments = new Fragment[]{new HomeFragment(),new MyFragment()};
 
     @BindView(R.id.activity_main)
     RelativeLayout activityMain;
@@ -75,13 +76,15 @@ public class MainActivity extends BaseActivity {
         });
         viewPager.setCurrentItem(0);
 
-        DaggerMainComponent.builder()
+        MainComponent mainComponent=DaggerMainComponent.builder()
                 .aComponent(((AppApplication) getApplication()).getAppComponent())
-                .activityModule(new ActivityModule(this))
-                .homeModule(new HomeModule((HomeFragment) fragments[0]))
+                .homeModule(new HomeModule((HomeFragment) fragments[0],R.layout.home_list_item))
                 .myModule(new MyModule((MyFragment) fragments[1]))
-                .build()
-                .inject(this);
+                .activityModule(new ActivityModule(this))
+                .build();
+        mainComponent.inject(this);
+        mainComponent.inject((HomeFragment) fragments[0]);
+        mainComponent.inject((MyFragment) fragments[1]);
     }
 
     private void selectTab(TabLayout.Tab tab) {

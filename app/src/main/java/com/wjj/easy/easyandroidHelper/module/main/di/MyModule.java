@@ -1,6 +1,7 @@
 package com.wjj.easy.easyandroidHelper.module.main.di;
 
 import com.wjj.easy.easyandroidHelper.module.main.MyContract;
+import com.wjj.easy.easyandroidHelper.module.main.MyFragment;
 
 import dagger.Module;
 import dagger.Provides;
@@ -21,4 +22,11 @@ public class MyModule {
     MyContract.View provideView() {
         return view;
     }
+
+    @Provides
+    MyFragment provideMyFragment(){
+        return new MyFragment();
+    }
+
+
 }

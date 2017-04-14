@@ -14,18 +14,6 @@ public class BaseStatus implements Parcelable {
     private int code;// 0成功
     private String message;
 
-    public static final Creator<BaseStatus> CREATOR = new Creator<BaseStatus>() {
-        @Override
-        public BaseStatus createFromParcel(Parcel in) {
-            return new BaseStatus(in);
-        }
-
-        @Override
-        public BaseStatus[] newArray(int size) {
-            return new BaseStatus[size];
-        }
-    };
-
     public int getCode() {
         return code;
     }

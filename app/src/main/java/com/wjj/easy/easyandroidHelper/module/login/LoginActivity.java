@@ -11,7 +11,6 @@ import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
 import com.wjj.easy.easyandroidHelper.AppApplication;
 import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.R;
-import com.wjj.easy.easyandroidHelper.module.dialog.DialogLoading;
 import com.wjj.easy.easyandroidHelper.module.login.di.DaggerLoginComponent;
 import com.wjj.easy.easyandroidHelper.module.login.di.LoginModule;
 import com.wjj.easy.easyandroidHelper.module.main.MainActivity;

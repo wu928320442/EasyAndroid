@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item_collection_list_root"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dv_img"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        fresco:placeholderImage="@mipmap/default_ad_square"
+      />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:background="#90000000"
+            android:text="宝约优选"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="一场前所未有的浸没"
+            android:textColor="#2d2f39"
+            android:textSize="14sp"
+            android:drawableRight="@mipmap/icon_vip_all"
+            android:drawablePadding="5dp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:text="2017.01.16"
+            android:textColor="#aaaaaa"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_date"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/tv_date"
+            android:text="上海市"
+            android:textColor="#aaaaaa"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_city"
+            android:layout_marginTop="8dp"
+            android:text="8,999"
+            android:textColor="#ff5a00"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_price_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_price"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/tv_price"
+            android:text="元"
+            android:textColor="#aaaaaa"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_member_price"
+            android:layout_marginLeft="25dp"
+            android:text="会员价格：8,000 元"
+            android:textColor="#ff8a26"
+            android:textSize="12sp"
+            android:layout_alignBottom="@+id/tv_price"
+            android:layout_toRightOf="@+id/tv_price"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
