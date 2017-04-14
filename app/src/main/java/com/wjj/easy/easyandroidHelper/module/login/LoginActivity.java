@@ -11,6 +11,7 @@ import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
 import com.wjj.easy.easyandroidHelper.AppApplication;
 import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.R;
+import com.wjj.easy.easyandroidHelper.module.dialog.DialogLoading;
 import com.wjj.easy.easyandroidHelper.module.login.di.DaggerLoginComponent;
 import com.wjj.easy.easyandroidHelper.module.login.di.LoginModule;
 import com.wjj.easy.easyandroidHelper.module.main.MainActivity;
@@ -72,41 +73,20 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     }
 
 
-    @Override
-    public void showLoadingDialog() {
-
-    }
-
-    @Override
-    public void dismissLoadingDialog() {
-
-    }
-
-    @Override
-    public void showToast(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void toast(String msg) {
-
-    }
-
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
-
     @OnClick({R.id.get_verify_code, R.id.tv_login})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.get_verify_code:
-                mPresenter.getVerifyCode(setUserName.getText().toString(), setPwd.getText().toString());
+                getPresenter().getVerifyCode(setUserName.getText().toString(), setPwd.getText().toString());
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.tv_login:
-                mPresenter.login(setUserName.getText().toString(), setPwd.getText().toString(), setVerifyCode.getText().toString());
+                getPresenter().login(setUserName.getText().toString(), setPwd.getText().toString(), setVerifyCode.getText().toString());
                 break;
         }
+    }
+
+    public LoginPresenter getPresenter() {
+        return mPresenter;
     }
 }

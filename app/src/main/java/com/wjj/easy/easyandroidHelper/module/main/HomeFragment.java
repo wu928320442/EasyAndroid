@@ -1,18 +1,15 @@
 package com.wjj.easy.easyandroidHelper.module.main;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.wjj.easy.easyandroidHelper.R;
 import com.wjj.easy.easyandroidHelper.common.base.BaseFragment;
-
-import javax.inject.Inject;
 
 /**
  * 首页
  * Created by wujiajun on 17/4/12.
  */
 
-public class HomeFragment extends BaseFragment implements HomeContract.View {
-
-    HomeContract.Presenter presenter;
+public class HomeFragment extends BaseFragment<HomeContract.Presenter> implements HomeContract.View {
 
     @Override
     protected void init() {
@@ -24,14 +21,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    public void setPresenter(HomeContract.Presenter presenter) {
-        this.presenter = presenter;
+    public void log(String msg) {
+        LogUtils.d(msg);
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
 }

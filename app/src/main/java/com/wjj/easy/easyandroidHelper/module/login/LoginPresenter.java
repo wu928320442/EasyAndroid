@@ -38,12 +38,12 @@ public class LoginPresenter implements LoginContract.Presenter {
         mGetVerifyCodeTask.setCallback(new UseCase.Callback<BaseStatus>() {
             @Override
             public void success(BaseStatus baseStatus) {
-                getView().showToast("getVerifyCode success!");
+                getView().toast("getVerifyCode success!");
             }
 
             @Override
             public void fail() {
-                getView().showToast("getVerifyCode fail!");
+                getView().toast("getVerifyCode fail!");
             }
         });
         threadExecutor.execute(mGetVerifyCodeTask);
@@ -51,19 +51,19 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void login(String userName, String pwd, String verifyCode) {
-        getView().showLoadingDialog();
+        getView().showLoading();
         mLoginTask.setUserName(userName);
         mLoginTask.setPwd(pwd);
         mLoginTask.setVerifyCode(verifyCode);
         mLoginTask.setCallback(new UseCase.Callback<LoginResponse>() {
             @Override
             public void success(LoginResponse loginResponse) {
-                getView().showToast("login success!");
+                getView().toast("login success!");
             }
 
             @Override
             public void fail() {
-                getView().showToast("login fail!");
+                getView().toast("login fail!");
             }
         });
         threadExecutor.execute(mLoginTask);

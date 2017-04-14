@@ -13,12 +13,10 @@ import butterknife.BindView;
  * Created by wujiajun on 17/4/12.
  */
 
-public class MyFragment extends BaseFragment implements MyContract.View {
+public class MyFragment extends BaseFragment<MyContract.Presenter> implements MyContract.View {
 
     @BindView(R.id.my_image_view)
     SimpleDraweeView myImageView;
-
-    MyContract.Presenter presenter;
 
     @Override
     protected void init() {
@@ -31,14 +29,4 @@ public class MyFragment extends BaseFragment implements MyContract.View {
         return R.layout.fragment_my;
     }
 
-    @Override
-    public void setPresenter(MyContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
 }

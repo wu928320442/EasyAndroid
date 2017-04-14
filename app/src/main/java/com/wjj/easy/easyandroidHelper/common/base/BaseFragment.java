@@ -1,81 +1,42 @@
 package com.wjj.easy.easyandroidHelper.common.base;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.orhanobut.logger.Logger;
-import com.wjj.easy.easyandroidHelper.BuildConfig;
+import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
+import com.wjj.easy.easyandroid.ui.EasyFragment;
+import com.wjj.easy.easyandroidHelper.module.dialog.DialogLoading;
 
 import butterknife.ButterKnife;
 
 /**
+ * Fragment业务基类
  * Created by wujiajun on 17/4/10.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<P extends EasyBasePresenter> extends EasyFragment<P> {
 
-    private final static String TAG = BaseFragment.class.getSimpleName();
-    private final static boolean DEBUG = BuildConfig.DEBUG;
+    protected DialogLoading loading;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(getContentView(), container, false);
+    protected void initView(View view) {
         ButterKnife.bind(this, view);
+        loading = new DialogLoading(getActivity());
         init();
-        return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (DEBUG) {
-            Logger.t(TAG).d("onStart");
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (DEBUG) {
-            Logger.t(TAG).d("onResume");
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (DEBUG) {
-            Logger.t(TAG).d("onPause");
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (DEBUG) {
-            Logger.t(TAG).d("onStop");
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (DEBUG) {
-            Logger.t(TAG).d("onDestroy");
-        }
     }
 
     public void toast(String msg) {
         ToastUtils.showShortToast(msg);
     }
 
+    public void showLoading() {
+        loading.show();
+    }
+
+    public void hiddenLoading() {
+        loading.hide();
+    }
+
     protected abstract void init();
 
-    protected abstract int getContentView();
 }

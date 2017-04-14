@@ -27,8 +27,6 @@ dependencies {
     //viewInject
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
-    //logger
-    compile "com.orhanobut:logger:$rootProject.orhanobutLogger"
     //recyclerViewAdapter
     compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerViewAdapterHelper"
 }

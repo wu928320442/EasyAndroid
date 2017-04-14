@@ -1,7 +1,8 @@
 package com.wjj.easy.easyandroidHelper.module.login;
 
-import com.wjj.easy.easyandroid.mvp.BasePresenter;
-import com.wjj.easy.easyandroid.mvp.BaseView;
+import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
+import com.wjj.easy.easyandroid.mvp.EasyBaseView;
+import com.wjj.easy.easyandroidHelper.common.base.BaseView;
 
 
 /**
@@ -11,15 +12,9 @@ import com.wjj.easy.easyandroid.mvp.BaseView;
 public interface LoginContract {
 
     interface View extends BaseView<Presenter> {
-
-        void showLoadingDialog();
-
-        void dismissLoadingDialog();
-
-        void showToast(String msg);
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter extends EasyBasePresenter {
         void getVerifyCode(String userName, String pwd);
 
         void login(String userName, String pwd, String verifyCode);

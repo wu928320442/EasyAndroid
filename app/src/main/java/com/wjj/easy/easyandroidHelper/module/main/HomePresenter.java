@@ -17,7 +17,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void start() {
-
+        view.log("come from home presenter!!!");
     }
 
     @Inject

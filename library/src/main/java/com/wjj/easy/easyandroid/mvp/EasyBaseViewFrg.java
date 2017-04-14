@@ -5,6 +5,6 @@ package com.wjj.easy.easyandroid.mvp;
  * 适用范围：在Fragment使用
  * Created by wujiajun on 17/4/13.
  */
-public interface FrgBaseView<T extends BasePresenter> extends BaseView {
+public interface EasyBaseViewFrg<T extends EasyBasePresenter> extends EasyBaseView<T> {
     void setPresenter(T presenter);
 }
