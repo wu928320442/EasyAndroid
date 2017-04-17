@@ -66,10 +66,6 @@ public abstract class BaseActivity<P extends EasyBasePresenter> extends EasyActi
         return new ActivityModule(this);
     }
 
-    public void setPresenter(P presenter) {
-        mPresenter = presenter;
-    }
-
     public P getPresenter() {
         return mPresenter;
     }

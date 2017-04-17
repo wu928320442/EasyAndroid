@@ -6,10 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.orhanobut.logger.Logger;
 import com.wjj.easy.easyandroid.BuildConfig;
-import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
 import com.wjj.easy.easyandroid.mvp.EasyBaseView;
-
-import javax.inject.Inject;
 
 /**
  * Activity基类
@@ -33,7 +30,6 @@ public abstract class EasyActivity extends AppCompatActivity implements EasyBase
         if (DEBUG) {
             Logger.t(TAG).d("onStart");
         }
-//        mPresenter.start();
     }
 
     @Override

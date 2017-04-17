@@ -1,8 +1,7 @@
 package com.wjj.easy.easyandroidHelper.module.login;
 
-import com.wjj.easy.easyandroid.mvp.domain.executor.Executor;
-import com.wjj.easy.easyandroid.mvp.domain.executor.MainThread;
 import com.wjj.easy.easyandroid.mvp.domain.usecases.UseCase;
+import com.wjj.easy.easyandroidHelper.common.base.BasePresenter;
 import com.wjj.easy.easyandroidHelper.model.LoginResponse;
 import com.wjj.easy.easyandroidHelper.model.base.BaseStatus;
 import com.wjj.easy.easyandroidHelper.module.login.domain.GetVerifyCodeTask;
@@ -14,15 +13,8 @@ import javax.inject.Inject;
  * Login Presenter
  * Created by wujiajun on 17/4/7.
  */
-public class LoginPresenter implements LoginContract.Presenter {
+public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
 
-
-    LoginContract.View mView;
-
-    @Inject
-    Executor threadExecutor;
-    @Inject
-    MainThread mainThread;
     @Inject
     GetVerifyCodeTask mGetVerifyCodeTask;
     @Inject
@@ -47,7 +39,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                 getView().toast("getVerifyCode fail!");
             }
         });
-        threadExecutor.execute(mGetVerifyCodeTask);
+        getThreadExecutor().execute(mGetVerifyCodeTask);
     }
 
     @Override
@@ -67,20 +59,6 @@ public class LoginPresenter implements LoginContract.Presenter {
                 getView().toast("login fail!");
             }
         });
-        threadExecutor.execute(mLoginTask);
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void attachView(LoginContract.View view) {
-        mView = view;
-    }
-
-    public LoginContract.View getView() {
-        return mView;
+        getThreadExecutor().execute(mLoginTask);
     }
 }

@@ -21,9 +21,6 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
-//    @Inject
-//    LoginPresenter mPresenter;
-
     @BindView(R.id.set_user_name)
     EditText setUserName;
     @BindView(R.id.set_pwd)
@@ -44,14 +41,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected void initEventAndData() {
-//        //设置presenter
-//        DaggerLoginComponent.builder()
-//                .aComponent(((AppApplication) getApplication()).getAppComponent())
-//                .loginModule(new LoginModule(this))
-//                .activityModule(new ActivityModule(this))
-//                .build()
-//                .inject(this);
-
         // App Logo
         toolbar.setLogo(R.mipmap.ic_launcher);
         // Title
@@ -83,7 +72,4 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-//    public LoginPresenter getPresenter() {
-//        return mPresenter;
-//    }
 }
