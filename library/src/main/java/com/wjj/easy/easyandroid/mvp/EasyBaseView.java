@@ -5,5 +5,6 @@ package com.wjj.easy.easyandroid.mvp;
  * 适用范围：在Activity使用
  * Created by wujiajun on 17/4/6.
  */
-public interface EasyBaseView<T extends EasyBasePresenter> {
+public interface EasyBaseView {
+
 }

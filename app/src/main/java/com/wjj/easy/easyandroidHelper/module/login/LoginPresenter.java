@@ -16,8 +16,9 @@ import javax.inject.Inject;
  */
 public class LoginPresenter implements LoginContract.Presenter {
 
-    @Inject
+
     LoginContract.View mView;
+
     @Inject
     Executor threadExecutor;
     @Inject
@@ -72,6 +73,11 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public void attachView(LoginContract.View view) {
+        mView = view;
     }
 
     public LoginContract.View getView() {

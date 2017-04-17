@@ -41,7 +41,7 @@ ext {
     okhttp3 = '3.4.1'
     persistentCookieJar = 'v1.0.1'
     fresco = '1.2.0'
-    dagger2 = '2.0'
+    dagger2 = '2.0.2'
     annotation = '10.0-b28'
     butterknife = '8.5.1'
     utilcode = '1.3.7'

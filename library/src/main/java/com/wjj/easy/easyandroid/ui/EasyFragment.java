@@ -10,25 +10,29 @@ import android.view.ViewGroup;
 import com.orhanobut.logger.Logger;
 import com.wjj.easy.easyandroid.BuildConfig;
 import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
+import com.wjj.easy.easyandroid.mvp.EasyBaseView;
+
+import javax.inject.Inject;
 
 /**
  * Created by wujiajun on 17/4/14.
  */
 
-public abstract class EasyFragment<P extends EasyBasePresenter> extends Fragment {
+public abstract class EasyFragment extends Fragment implements EasyBaseView {
 
     private final static String TAG = EasyFragment.class.getSimpleName();
     private final static boolean DEBUG = BuildConfig.DEBUG;
-
-    protected P presenter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getContentView(), container, false);
         initView(view);
+        init(view);
         return view;
     }
+
+    protected abstract void init(View view);
 
     protected abstract void initView(View view);
 
@@ -38,7 +42,6 @@ public abstract class EasyFragment<P extends EasyBasePresenter> extends Fragment
         if (DEBUG) {
             Logger.t(TAG).d("onStart");
         }
-        presenter.start();
     }
 
     @Override
@@ -74,12 +77,4 @@ public abstract class EasyFragment<P extends EasyBasePresenter> extends Fragment
     }
 
     protected abstract int getContentView();
-
-    public void setPresenter(P presenter) {
-        this.presenter = presenter;
-    }
-
-    public P getPresenter() {
-        return presenter;
-    }
 }

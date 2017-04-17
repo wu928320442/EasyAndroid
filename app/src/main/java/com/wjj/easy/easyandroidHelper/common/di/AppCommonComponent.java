@@ -9,11 +9,13 @@ import com.wjj.easy.easyandroidHelper.common.net.ApiService;
 import dagger.Component;
 
 /**
- * Created by wujiajun on 17/4/7.
+ * Application注入器
+ *
+ * @author wujiajun
  */
 @ApplicationScope
-@Component(modules = AModule.class)
-public interface AComponent extends AppComponent {
+@Component(modules = AppCommonModule.class)
+public interface AppCommonComponent extends AppComponent {
     ApiService getApiService();
 
     Executor getExecutor();

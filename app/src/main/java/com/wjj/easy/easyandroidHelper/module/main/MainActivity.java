@@ -10,16 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
-import com.wjj.easy.easyandroidHelper.AppApplication;
 import com.wjj.easy.easyandroidHelper.R;
-import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
-import com.wjj.easy.easyandroidHelper.module.main.di.DaggerMainComponent;
-import com.wjj.easy.easyandroidHelper.module.main.di.HomeModule;
-import com.wjj.easy.easyandroidHelper.module.main.di.MainComponent;
-import com.wjj.easy.easyandroidHelper.module.main.di.MyModule;
-
-import javax.inject.Inject;
+import com.wjj.easy.easyandroidHelper.common.base.SimpleActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,10 +21,10 @@ import butterknife.ButterKnife;
  *
  * @author wujiajun
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends SimpleActivity {
 
 
-    private Fragment[] fragments = new Fragment[]{new HomeFragment(),new MyFragment()};
+    private Fragment[] fragments = new Fragment[]{new HomeFragment(), new MyFragment()};
 
     @BindView(R.id.activity_main)
     RelativeLayout activityMain;
@@ -41,14 +33,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
 
-    @Inject
-    HomePresenter homePresenter;
-    @Inject
-    MyPresenter myPresenter;
-
     @Override
-    protected void init() {
-
+    protected void initEventAndData() {
         viewPager.setAdapter(new MainPageAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
@@ -75,16 +61,6 @@ public class MainActivity extends BaseActivity {
             }
         });
         viewPager.setCurrentItem(0);
-
-        MainComponent mainComponent=DaggerMainComponent.builder()
-                .aComponent(((AppApplication) getApplication()).getAppComponent())
-                .homeModule(new HomeModule((HomeFragment) fragments[0],R.layout.home_list_item))
-                .myModule(new MyModule((MyFragment) fragments[1]))
-                .activityModule(new ActivityModule(this))
-                .build();
-        mainComponent.inject(this);
-        mainComponent.inject((HomeFragment) fragments[0]);
-        mainComponent.inject((MyFragment) fragments[1]);
     }
 
     private void selectTab(TabLayout.Tab tab) {

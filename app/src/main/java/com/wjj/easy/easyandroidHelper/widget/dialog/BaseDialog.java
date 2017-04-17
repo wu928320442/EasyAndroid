@@ -1,4 +1,4 @@
-package com.wjj.easy.easyandroidHelper.module.dialog;
+package com.wjj.easy.easyandroidHelper.widget.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -24,9 +24,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(path: ':library')
-    //viewInject
+    //butterknife viewInject
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
-    //recyclerViewAdapter
-    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerViewAdapterHelper"
+    compile "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
 }

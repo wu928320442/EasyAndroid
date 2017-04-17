@@ -8,7 +8,7 @@ import com.wjj.easy.easyandroid.mvp.EasyBaseView;
  * Created by wujiajun on 17/4/14.
  */
 
-public interface BaseView<T extends EasyBasePresenter> extends EasyBaseView<T> {
+public interface BaseView extends EasyBaseView {
     void toast(String msg);
 
     void showLoading();

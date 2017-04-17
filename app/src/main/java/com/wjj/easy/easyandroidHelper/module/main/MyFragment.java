@@ -13,20 +13,25 @@ import butterknife.BindView;
  * Created by wujiajun on 17/4/12.
  */
 
-public class MyFragment extends BaseFragment<MyContract.Presenter> implements MyContract.View {
+public class MyFragment extends BaseFragment<MyPresenter> implements MyContract.View {
 
     @BindView(R.id.my_image_view)
     SimpleDraweeView myImageView;
 
     @Override
-    protected void init() {
-        Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/logo.png");
-        myImageView.setImageURI(uri);
+    protected int getContentView() {
+        return R.layout.fragment_my;
     }
 
     @Override
-    protected int getContentView() {
-        return R.layout.fragment_my;
+    protected void initInject() {
+        getFragmentComponent().inject(this);
+    }
+
+    @Override
+    protected void initEventAndData() {
+        Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/logo.png");
+        myImageView.setImageURI(uri);
     }
 
 }

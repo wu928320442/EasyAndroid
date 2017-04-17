@@ -6,13 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.orhanobut.logger.Logger;
 import com.wjj.easy.easyandroid.BuildConfig;
+import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
+import com.wjj.easy.easyandroid.mvp.EasyBaseView;
+
+import javax.inject.Inject;
 
 /**
  * Activity基类
  * Created by wujiajun on 17/4/14.
  */
 
-public abstract class EasyActivity extends AppCompatActivity {
+public abstract class EasyActivity extends AppCompatActivity implements EasyBaseView {
 
     private final static String TAG = EasyActivity.class.getSimpleName();
     private final static boolean DEBUG = BuildConfig.DEBUG;
@@ -29,6 +33,7 @@ public abstract class EasyActivity extends AppCompatActivity {
         if (DEBUG) {
             Logger.t(TAG).d("onStart");
         }
+//        mPresenter.start();
     }
 
     @Override
@@ -64,4 +69,6 @@ public abstract class EasyActivity extends AppCompatActivity {
     }
 
     protected abstract int getContentView();
+
+
 }

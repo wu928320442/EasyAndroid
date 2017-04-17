@@ -23,14 +23,16 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by wujiajun on 17/4/7.
+ * Application Module
+ *
+ * @author wujiajun
  */
 @Module
-public class AModule extends AppModule {
+public class AppCommonModule extends AppModule {
 
     private Http mHttp;
 
-    public AModule(Context context) {
+    public AppCommonModule(Context context) {
         super(context);
         initHttp();
         initImage();

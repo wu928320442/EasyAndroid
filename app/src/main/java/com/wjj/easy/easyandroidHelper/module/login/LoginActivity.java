@@ -5,17 +5,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.wjj.easy.easyandroid.mvp.di.modules.ActivityModule;
-import com.wjj.easy.easyandroidHelper.AppApplication;
-import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.R;
-import com.wjj.easy.easyandroidHelper.module.login.di.DaggerLoginComponent;
-import com.wjj.easy.easyandroidHelper.module.login.di.LoginModule;
+import com.wjj.easy.easyandroidHelper.common.base.BaseActivity;
 import com.wjj.easy.easyandroidHelper.module.main.MainActivity;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,10 +19,10 @@ import butterknife.OnClick;
  * @author wujiajun
  */
 
-public class LoginActivity extends BaseActivity implements LoginContract.View {
+public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
 
-    @Inject
-    LoginPresenter mPresenter;
+//    @Inject
+//    LoginPresenter mPresenter;
 
     @BindView(R.id.set_user_name)
     EditText setUserName;
@@ -45,14 +38,19 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     Toolbar toolbar;
 
     @Override
-    protected void init() {
-        //设置presenter
-        DaggerLoginComponent.builder()
-                .aComponent(((AppApplication) getApplication()).getAppComponent())
-                .loginModule(new LoginModule(this))
-                .activityModule(new ActivityModule(this))
-                .build()
-                .inject(this);
+    protected void initInject() {
+        getActivityComponent().inject(this);
+    }
+
+    @Override
+    protected void initEventAndData() {
+//        //设置presenter
+//        DaggerLoginComponent.builder()
+//                .aComponent(((AppApplication) getApplication()).getAppComponent())
+//                .loginModule(new LoginModule(this))
+//                .activityModule(new ActivityModule(this))
+//                .build()
+//                .inject(this);
 
         // App Logo
         toolbar.setLogo(R.mipmap.ic_launcher);
@@ -85,7 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         }
     }
 
-    public LoginPresenter getPresenter() {
-        return mPresenter;
-    }
+//    public LoginPresenter getPresenter() {
+//        return mPresenter;
+//    }
 }

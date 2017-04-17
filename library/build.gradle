@@ -23,29 +23,29 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    //support lib
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
-
+    //retrofit2
     compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit2"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2"
-
+    //okhttp3
     compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp3"
     compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3"
-
+    //persistentCookieJar
     compile "com.github.franmontiel:PersistentCookieJar:$rootProject.persistentCookieJar"
-
+    //fresco
     compile "com.facebook.fresco:fresco:$rootProject.fresco"
     compile "com.facebook.fresco:imagepipeline-okhttp3:$rootProject.fresco"
-
+    //dagger2
     apt "com.google.dagger:dagger-compiler:$rootProject.dagger2"
     compile "com.google.dagger:dagger:$rootProject.dagger2"
     compile "com.google.dagger:dagger-compiler:$rootProject.dagger2"
     compile "org.glassfish:javax.annotation:$rootProject.annotation"
-
+    //recyclerViewAdapter
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerViewAdapterHelper"
+    //utilcode
     compile "com.blankj:utilcode:$rootProject.utilcode"
-
     //logger
     compile "com.orhanobut:logger:$rootProject.orhanobutLogger"
-
 }

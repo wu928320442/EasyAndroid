@@ -2,9 +2,9 @@ package com.wjj.easy.easyandroidHelper;
 
 import android.app.Application;
 
-import com.wjj.easy.easyandroidHelper.common.di.AComponent;
-import com.wjj.easy.easyandroidHelper.common.di.AModule;
-import com.wjj.easy.easyandroidHelper.common.di.DaggerAComponent;
+import com.wjj.easy.easyandroidHelper.common.di.AppCommonComponent;
+import com.wjj.easy.easyandroidHelper.common.di.AppCommonModule;
+import com.wjj.easy.easyandroidHelper.common.di.DaggerAppCommonComponent;
 
 /**
  * Created by wujiajun on 17/4/6.
@@ -12,15 +12,15 @@ import com.wjj.easy.easyandroidHelper.common.di.DaggerAComponent;
 
 public class AppApplication extends Application {
 
-    AComponent aComponent;
+    AppCommonComponent aComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        aComponent = DaggerAComponent.builder().aModule(new AModule(this)).build();
+        aComponent = DaggerAppCommonComponent.builder().appCommonModule(new AppCommonModule(this)).build();
     }
 
-    public AComponent getAppComponent() {
+    public AppCommonComponent getAppComponent() {
         return aComponent;
     }
 }
