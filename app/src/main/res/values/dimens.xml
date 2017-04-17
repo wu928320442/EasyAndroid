@@ -125,4 +125,5 @@
     <dimen name="padding_size_400">400dp</dimen>
     <dimen name="padding_size_500">500dp</dimen>
     <dimen name="padding_size_540">540dp</dimen>
+
 </resources>

@@ -36,6 +36,6 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                 getView().hiddenLoading();
             }
         });
-        getThreadExecutor().execute(getListTask);
+        execute(getListTask);
     }
 }

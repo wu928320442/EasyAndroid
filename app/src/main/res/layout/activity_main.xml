@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.wjj.easy.easyandroidHelper.module.main.MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
@@ -21,6 +28,7 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/tab_layout" />
+        android:layout_above="@id/tab_layout"
+        android:layout_below="@id/tool_bar" />
 
 </RelativeLayout>

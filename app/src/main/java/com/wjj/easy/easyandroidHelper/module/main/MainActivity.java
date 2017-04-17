@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,9 +33,18 @@ public class MainActivity extends SimpleActivity {
     ViewPager viewPager;
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
 
     @Override
     protected void initEventAndData() {
+
+        toolbar.setLogo(R.mipmap.icon_app);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
+        toolbar.setTitleMarginStart(getResources().getDimensionPixelSize(R.dimen.padding_size_30));
+        setSupportActionBar(toolbar);
+
         viewPager.setAdapter(new MainPageAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 

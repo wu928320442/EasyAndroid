@@ -4,6 +4,7 @@ import com.wjj.easy.easyandroid.mvp.EasyBasePresenter;
 import com.wjj.easy.easyandroid.mvp.EasyBaseView;
 import com.wjj.easy.easyandroid.mvp.domain.executor.Executor;
 import com.wjj.easy.easyandroid.mvp.domain.executor.MainThread;
+import com.wjj.easy.easyandroid.mvp.domain.usecases.AbstractUseCase;
 
 import javax.inject.Inject;
 
@@ -37,5 +38,9 @@ public class BasePresenter<V extends EasyBaseView> implements EasyBasePresenter<
 
     public Executor getThreadExecutor() {
         return threadExecutor;
+    }
+
+    protected void execute(AbstractUseCase task) {
+        getThreadExecutor().execute(task);
     }
 }

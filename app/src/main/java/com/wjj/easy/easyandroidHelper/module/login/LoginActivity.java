@@ -1,6 +1,7 @@
 package com.wjj.easy.easyandroidHelper.module.login;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
@@ -41,16 +42,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected void initEventAndData() {
-        // App Logo
-        toolbar.setLogo(R.mipmap.ic_launcher);
-        // Title
-        toolbar.setTitle("App Title");
-        // Sub Title
-        toolbar.setSubtitle("Sub title");
-
+        toolbar.setLogo(R.mipmap.icon_app);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
+        toolbar.setTitleMarginStart(getResources().getDimensionPixelSize(R.dimen.padding_size_30));
         setSupportActionBar(toolbar);
-        //Navigation Icon
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
     }
 
     @Override
