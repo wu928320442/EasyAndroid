@@ -3,11 +3,11 @@
 ** SDK
 ** AndroidStudio开发工具
 
-*特性
+* 特性
 ** 整合主流HTTP网络、图片加载、MVP（Clean＋Dagger2）架构的一套快速高效的开发框架
 ** 包含app library 两个Module 组件化开发
 
-*用到的第三方框架
+* 用到的第三方框架
 ** SDK自带扩展依赖包
 ** Retrofit2网络层处理 使用OKHTTP3处理
 ** Fresco图片加载处理 使用OKHTTP3处理
