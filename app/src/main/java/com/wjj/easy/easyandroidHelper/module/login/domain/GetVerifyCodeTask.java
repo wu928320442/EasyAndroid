@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 public class GetVerifyCodeTask extends AbstractUseCase {
 
-    String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCf/BRlBCplTC/gcMTGhDbPWnn0hr3kjV0JPk8JNaUZuMIaWX5y1YS0A47o4rPbTr28z27WnUAVpCLNO9fPgClyZjhI1NDNlqGjRmAfQPylZZIKpithUIfx29Kv5VsAZABg4r95If4nCpzHAFSGD5VaOKyDNXPwWR9BxyjkPPzwYwIDAQAB";
+    String publicKey = "11";
 
     String userName;
     String pwd;
