@@ -20,5 +20,5 @@
 * Logger 一个简洁漂亮的日志打印库
 
 # 联系方式
-* QQ：928320442
-* Email:wujiajun311@gmail.com
+* **QQ**928320442
+* **Email** wujiajun311@gmail.com

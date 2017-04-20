@@ -23,7 +23,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(path: ':library')
+    compile project(path: ':easyandroid')
     //butterknife viewInject
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     compile "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
