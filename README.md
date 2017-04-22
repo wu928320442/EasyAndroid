@@ -19,6 +19,10 @@
 * Utilcode实用工具库
 * Logger 一个简洁漂亮的日志打印库
 
+# 类库导入
+```gradle
+compile 'com.wjj.easy:easyandroid:1.0.0'
+```
 # 联系方式
 * **QQ**928320442
 * **Email** wujiajun311@gmail.com

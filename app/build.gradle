@@ -27,4 +27,5 @@ dependencies {
     //butterknife viewInject
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     compile "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
+    compile 'com.wjj.easy:qrcodestyle:1.0.0'
 }
