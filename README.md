@@ -24,5 +24,6 @@
 compile 'com.wjj.easy:easyandroid:1.0.0'
 ```
 # 联系方式
-* **QQ**928320442
+* **QQ** 928320442
+* **Android开发交流群** 323876830
 * **Email** wujiajun311@gmail.com
