@@ -1,3 +1,6 @@
+最新版RxEasyAndroid 支持RxJava2 可移步到 https://github.com/wu928320442/RxEasyAndroid
+
+----------------本版本为非RxJava2版本---------------
 # 需要的环境
 * JDK1.8
 * SDK
